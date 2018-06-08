@@ -54,19 +54,19 @@ class pyvigenere:
 			i = 0
 			for cutted_data in tencstr:
 				if cutted_data.isalpha():
-						if tencstr[i].isupper():
-							input_encode = cutted_data.lower()
-							token = 1
-						else:
-							input_encode = cutted_data
-							token = 0
-						char_index = self.theory[0].index(input_encode)
-						for a in self.theory:
-							if a[0] == key[i]:
-								if token == 1:
-									encode_str += a[char_index].upper()
-								else:
-									encode_str += a[char_index]
+					if tencstr[i].isupper():
+						input_encode = cutted_data.lower()
+						token = 1
+					else:
+						input_encode = cutted_data
+						token = 0
+					char_index = self.theory[0].index(input_encode)
+					for a in self.theory:
+						if a[0] == key[i]:
+							if token == 1:
+								encode_str += a[char_index].upper()
+							else:
+								encode_str += a[char_index]
 				elif cutted_data.isdigit() or cutted_data == " ":
 					encode_str += cutted_data
 				else:
@@ -96,19 +96,19 @@ class pyvigenere:
 			i = 0
 			for cutted_data in tdecodestr:
 				if cutted_data.isalpha():
-						if cutted_data.isupper():
-							input_decode = cutted_data.lower()
-							token = 1
-						else:
-							input_decode = cutted_data
-							token = 0
-						for a in self.theory:
-							if a[0] == key[i]:
-								char_index = self.theory[0][a.index(input_decode)]
-								if token == 1:
-									decode_str += char_index.upper()
-								else:
-									decode_str += char_index
+					if cutted_data.isupper():
+						input_decode = cutted_data.lower()
+						token = 1
+					else:
+						input_decode = cutted_data
+						token = 0
+					for a in self.theory:
+						if a[0] == key[i]:
+							char_index = self.theory[0][a.index(input_decode)]
+							if token == 1:
+								decode_str += char_index.upper()
+							else:
+								decode_str += char_index
 				elif cutted_data.isdigit() or cutted_data == " ":
 					decode_str += cutted_data
 				else:
